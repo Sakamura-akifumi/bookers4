@@ -5,7 +5,7 @@
 <main>
 <%= render 'books/book',books:@books,user:@user,book:@newbook %>
 
-　　　　<!--User一覧画面-->
+
 　　<h2>Book detail</h2>
 　   <table class = "table" >
  　　　　 <thead>
@@ -48,7 +48,7 @@
           <%= book_comment.comment %>
           <% if book_comment.user == current_user %>
           <p><%= link_to 'Delete', book_book_comment_path(book_comment.book, book_comment), method: :delete %></p>
-          <!--引数を二つ使う。rails routesで確認-->
+
          <% end %>
         <% end %>
         </td>
