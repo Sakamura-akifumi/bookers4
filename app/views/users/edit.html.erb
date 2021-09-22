@@ -1,0 +1,38 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+
+<% if flash[:notice] %>
+<p class = "success"><%= flash[:notice] %></p>
+<% end %>
+
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>error prohibited this obj from being saved:
+  <% @user.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<main>
+  <div clas = "container">
+    <div class = "row">
+      <div class = "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h2>User info</h2>
+        <%= form_with model: @user,local: true do |f| %>
+
+        <%= f.label :name %><br>
+        <%= f.text_field :name %><br>
+
+        <%= f.label :image %><br>
+        <%= f.attachment_field :profile_image %><br>
+
+        <%= f.label :introduction %><br>
+        <%= f.text_field :introduction %><br>
+
+        <%= f.submit %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
+
