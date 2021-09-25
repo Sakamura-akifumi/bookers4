@@ -1,6 +1,3 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
-
 <body>
 <main>
 <%= render 'books/book',books:@books,user:@user,book:@book %>
@@ -22,18 +19,11 @@
       </td>
       <td><%= link_to book.title,book_path(book.id) %></td>
       <td><%= book.body %></td>
-      <td>
-          <% if current_user.already_favorited?(book) %>
-           <%= link_to book_favorites_path(book),method: :delete do %>
-            <i class="fas fa-heart"></i>
-            <% end %>
-          <% else %>
-           <%= link_to book_favorites_path(book),method: :post do %>
-            <i class="far fa-heart"></i>
-            <% end %>
-          <% end %>
-          <%= book.favorites.count %>
+
+      <td id="favorite_buttons_<%= @book.id %>">
+        <%= render 'favorites/favorite', book: @book %>
       </td>
+
     </tr>
     <% end %>
     </tbody>

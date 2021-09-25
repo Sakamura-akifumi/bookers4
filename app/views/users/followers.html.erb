@@ -1,20 +1,17 @@
-<h1>Users#followers</h1>
-<p>Find me in app/views/users/followers.html.erb</p>
-
 <body>
  <main>
 
 　<h2>Follower Users</h2>
 　 <table class = "table" >
  　　　　 <thead>
-   　    <th>image</th>
+   　   <th>image</th>
     　　<th>name</th>
        </thead>
   <tbody>
     <% @users.each do |user| %>
     <tr>
       <td>
-       <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
+      <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
       </td>
       <td><%= user.name %></td>
       <td>フォロー数:<%= user.followings.count %></td>

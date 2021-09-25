@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   def index
     @user = current_user
     @users = User.where.not(id: current_user.id)
-    # 変更
     @book = Book.new
   end
 
@@ -22,7 +21,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @book = Book.new
     @books = @user.books
-    #@userに関連付けされたやつを@booksに渡している
   end
 
   def edit
